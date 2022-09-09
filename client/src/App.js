@@ -12,6 +12,7 @@ import AdminPannel from "./Components/AdminPannel/AdminPannel";
 import Timeline from "./Components/AdminPannel/Timeline";
 import YoutubeVideos from "./Components/AdminPannel/YoutubeVideos";
 import Projects from "./Components/AdminPannel/Project";
+import Loader from "./Components/Loader/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser, LoadUser } from "./actions/user";
 
@@ -28,7 +29,7 @@ function App() {
   return (
     <Router>
       {loading ? (
-        <div>Loading...</div>
+        <Loader />
       ) : (
         <>
           <Header />
