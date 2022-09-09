@@ -1,6 +1,7 @@
 require("dotenv/config");
 const express = require("express");
 const app = express();
+const path = require("path");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -21,9 +22,6 @@ app.use(morgan("tiny"));
 app.use(cookieParser());
 app.use(`/api/v1`, router);
 
-app.get(`/`, (req, res) => {
-  res.send("hello world");
-});
 
 // error path
 app.use((req, res, next) => {
