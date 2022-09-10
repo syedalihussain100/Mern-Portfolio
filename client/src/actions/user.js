@@ -5,7 +5,9 @@ export const getUser = () => async (dispatch) => {
     dispatch({
       type: "GET_USER_REQUEST",
     });
-    const { data } = await axios.get("https://mernportfolioapi.herokuapp.com/api/v1/user");
+    const { data } = await axios.get(
+      "/user"
+    );
     dispatch({
       type: "GET_USER_SUCCESS",
       payload: data.user,
@@ -25,11 +27,14 @@ export const login = (name, email, password) => async (dispatch) => {
     dispatch({
       type: "LOGIN_REQUEST",
     });
-    const { data } = await axios.post("/login", {
-      name,
-      email,
-      password,
-    });
+    const { data } = await axios.post(
+      "/login",
+      {
+        name,
+        email,
+        password,
+      }
+    );
     dispatch({
       type: "LOGIN_SUCCESS",
       payload: data.message,
@@ -49,7 +54,9 @@ export const Logout = () => async (dispatch) => {
     dispatch({
       type: "LOGOUT_REQUEST",
     });
-    const { data } = await axios.get("/logout");
+    const { data } = await axios.get(
+      "/logout"
+    );
     dispatch({
       type: "LOGOUT_SUCCESS",
       payload: data.message,
@@ -69,7 +76,9 @@ export const LoadUser = () => async (dispatch) => {
     dispatch({
       type: "LOAD_USER_REQUEST",
     });
-    const { data } = await axios.get("/myprofile");
+    const { data } = await axios.get(
+      "/myprofile"
+    );
     dispatch({
       type: "LOAD_USER_SUCCESS",
       payload: data.message,
@@ -156,7 +165,9 @@ export const deleteTimeline = (id) => async (dispatch) => {
     dispatch({
       type: "DELETE_TIMELINE_REQUEST",
     });
-    const { data } = await axios.delete(`/admin/timeline/${id}`);
+    const { data } = await axios.delete(
+      `/admin/timeline/${id}`
+    );
     dispatch({
       type: "DELETE_TIMELINE_SUCCESS",
       payload: data.message,
@@ -208,7 +219,9 @@ export const deleteYoutube = (id) => async (dispatch) => {
     dispatch({
       type: "DELETE_YOUTUBE_REQUEST",
     });
-    const { data } = await axios.delete(`/admin/youtube/${id}`);
+    const { data } = await axios.delete(
+      `/admin/youtube/${id}`
+    );
     dispatch({
       type: "DELETE_YOUTUBE_SUCCESS",
       payload: data.message,
@@ -263,7 +276,9 @@ export const deleteProject = (id) => async (dispatch) => {
     dispatch({
       type: "DELETE_PROJECT_REQUEST",
     });
-    const { data } = await axios.delete(`/admin/project/${id}`);
+    const { data } = await axios.delete(
+      `/admin/project/${id}`
+    );
     dispatch({
       type: "DELETE_PROJECT_SUCCESS",
       payload: data.message,
