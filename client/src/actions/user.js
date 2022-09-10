@@ -6,7 +6,7 @@ export const getUser = () => async (dispatch) => {
       type: "GET_USER_REQUEST",
     });
     const { data } = await axios.get(
-      "/user"
+      "https://mernportfolioapi.herokuapp.com/api/v1/user"
     );
     dispatch({
       type: "GET_USER_SUCCESS",
