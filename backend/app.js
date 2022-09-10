@@ -22,11 +22,11 @@ app.use(morgan("tiny"));
 app.use(cookieParser());
 app.use(`/api/v1`, router);
 
-app.use(express.static(path.resolve("../client/build")));
+// app.use(express.static(path.resolve("../client/build")));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve("../client/build/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve("../client/build/index.html"));
+// });
 
 // error path
 app.use((req, res, next) => {

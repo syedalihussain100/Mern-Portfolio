@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useAlert } from "react-alert";
 import { Logout, adminUpdate } from "../../actions/user";
+import {Helmet} from "react-helmet"
 
 function AdminPannel() {
   const { message: Loginmessage } = useSelector((state) => state.login);
@@ -91,6 +92,17 @@ function AdminPannel() {
 
   return (
     <div className="adminPanel">
+      <Helmet>
+        <title>Syed Muhemin Ali || Explore Admin Pannel</title>
+        <meta
+          name="description"
+          content="Hi, I'am a Mern Stack Developer || Front End Developer || Backend Developer || Ui/Ux Designer || Explore new data with Admin Pannel"
+        />
+        <meta
+          name="keyword"
+          content="portfolio, html, css, javascript, react.js, redux.js, firebase, graphql, node.js, express.js, mongodb, developer"
+        />
+      </Helmet>
       <div className="adminPanelContainer">
         <Typography variant="h4">
           <p>A</p>

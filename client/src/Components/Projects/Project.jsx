@@ -6,6 +6,7 @@ import { Delete } from "@mui/icons-material";
 import { FaRegSmileWink } from "react-icons/fa";
 import { deleteProject, getUser } from "../../actions/user";
 import { useDispatch } from "react-redux";
+import { Helmet } from "react-helmet";
 
 export const ProjectCard = ({
   url,
@@ -51,9 +52,19 @@ export const ProjectCard = ({
 };
 
 function Project({ projects }) {
-  console.log("projects", projects);
   return (
     <div className="projects">
+      <Helmet>
+        <title>Syed Muhemin Ali || Explore Projects</title>
+        <meta
+          name="description"
+          content="Hi, I'am a Mern Stack Developer || Front End Developer || Backend Developer || Ui/Ux Designer || Explore New Data With Projects"
+        />
+        <meta
+          name="keyword"
+          content="portfolio, html, css, javascript, react.js, redux.js, firebase, graphql, node.js, express.js, mongodb, developer"
+        />
+      </Helmet>
       <Typography variant="h3">
         Projects <AiOutlineProject />
       </Typography>

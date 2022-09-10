@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import "./AdminPannel.css";
 import YoutubeCard from "../YoutubeCard/Youtube";
 import { addYoutube, getUser } from "../../actions/user";
+import { Helmet } from "react-helmet";
 
 function YoutubeVideos() {
   const { message: loginMessage } = useSelector((state) => state.login);
@@ -56,6 +57,17 @@ function YoutubeVideos() {
 
   return (
     <div className="adminPanel">
+      <Helmet>
+        <title>Syed Muhemin Ali || Explore Youtube Videos</title>
+        <meta
+          name="description"
+          content="Hi, I'am a Mern Stack Developer || Front End Developer || Backend Developer || Ui/Ux Designer || Explore New Data With YoutubeVideos"
+        />
+        <meta
+          name="keyword"
+          content="portfolio, html, css, javascript, react.js, redux.js, firebase, graphql, node.js, express.js, mongodb, developer"
+        />
+      </Helmet>
       <div className="adminPanelContainer">
         <Typography variant="h4">
           <p>A</p>

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { useAlert } from "react-alert";
 import { FaTrash } from "react-icons/fa";
 import { addTimeline, deleteTimeline, getUser } from "../../actions/user";
+import { Helmet } from "react-helmet";
 
 function Timeline() {
   const dispatch = useDispatch();
@@ -48,6 +49,17 @@ function Timeline() {
 
   return (
     <div className="adminPanel">
+      <Helmet>
+        <title>Syed Muhemin Ali || Explore Timeline</title>
+        <meta
+          name="description"
+          content="Hi, I'am a Mern Stack Developer || Front End Developer || Backend Developer || Ui/Ux Designer || Explore New Data With Timeline"
+        />
+        <meta
+          name="keyword"
+          content="portfolio, html, css, javascript, react.js, redux.js, firebase, graphql, node.js, express.js, mongodb, developer"
+        />
+      </Helmet>
       <div className="adminPanelContainer">
         <Typography variant="h4">
           <p>A</p>

@@ -1,10 +1,22 @@
 import React from "react";
 import "./About.css";
 import { Typography } from "@mui/material";
+import { Helmet } from "react-helmet";
 
 function About({ about }) {
   return (
     <div className="about">
+      <Helmet>
+        <title>Syed Muhemin Ali || Explore About</title>
+        <meta
+          name="description"
+          content="Hi, I'am a Mern Stack Developer || Front End Developer || Backend Developer || Ui/Ux Designer || Explore New Data With About"
+        />
+        <meta
+          name="keyword"
+          content="portfolio, html, css, javascript, react.js, redux.js, firebase, graphql, node.js, express.js, mongodb, developer"
+        />
+      </Helmet>
       <div className="aboutContainer">
         <Typography>{about.quote}</Typography>
       </div>

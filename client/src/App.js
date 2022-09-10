@@ -15,6 +15,7 @@ import Projects from "./Components/AdminPannel/Project";
 import Loader from "./Components/Loader/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser, LoadUser } from "./actions/user";
+import { Helmet } from "react-helmet";
 
 function App() {
   const dispatch = useDispatch();
@@ -33,6 +34,17 @@ function App() {
       ) : (
         <>
           <Header />
+          <Helmet>
+            <title>Syed Muhemin Ali</title>
+            <meta
+              name="description"
+              content="Hi, I'am a Mern Stack Developer || Front End Developer || Backend Developer || Ui/Ux Designer"
+            />
+            <meta
+              name="keyword"
+              content="portfolio, html, css, javascript, react.js, redux.js, firebase, graphql, node.js, express.js, mongodb, developer"
+            />
+          </Helmet>
           <Routes>
             <Route
               path="/"

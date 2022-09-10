@@ -4,6 +4,7 @@ import { Button, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { contactUs } from "../../actions/user";
 import { useAlert } from "react-alert";
+import { Helmet } from "react-helmet";
 
 function Conatct() {
   const [name, setName] = useState("");
@@ -38,6 +39,17 @@ function Conatct() {
 
   return (
     <div className="contact">
+      <Helmet>
+        <title>Syed Muhemin Ali || Explore Contact</title>
+        <meta
+          name="description"
+          content="Hi, I'am a Mern Stack Developer || Front End Developer || Backend Developer || Ui/Ux Designer || Explore New Data With Contact"
+        />
+        <meta
+          name="keyword"
+          content="portfolio, html, css, javascript, react.js, redux.js, firebase, graphql, node.js, express.js, mongodb, developer"
+        />
+      </Helmet>
       <div className="contactRightBar"></div>
       <div className="contactContainer">
         <form className="contactContainerForm" onSubmit={contactFormHandler}>

@@ -7,6 +7,7 @@ import { Button, Typography } from "@mui/material";
 import { MdKeyboardBackspace } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { ProjectCard } from "../Projects/Project";
+import { Helmet } from "react-helmet";
 
 const Project = () => {
   const { message: loginMessage } = useSelector((state) => state.login);
@@ -59,6 +60,17 @@ const Project = () => {
 
   return (
     <div className="adminPanel">
+      <Helmet>
+        <title>Syed Muhemin Ali || Explore Project</title>
+        <meta
+          name="description"
+          content="Hi, I'am a Mern Stack Developer || Front End Developer || Backend Developer || Ui/Ux Designer || Explore New Data With Project"
+        />
+        <meta
+          name="keyword"
+          content="portfolio, html, css, javascript, react.js, redux.js, firebase, graphql, node.js, express.js, mongodb, developer"
+        />
+      </Helmet>
       <div className="adminPanelContainer">
         <Typography variant="h4">
           <p>A</p>

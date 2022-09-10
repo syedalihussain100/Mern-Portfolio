@@ -5,7 +5,7 @@ export const getUser = () => async (dispatch) => {
     dispatch({
       type: "GET_USER_REQUEST",
     });
-    const { data } = await axios.get("/api/v1/user");
+    const { data } = await axios.get("https://mernportfolioapi.herokuapp.com/api/v1/user");
     dispatch({
       type: "GET_USER_SUCCESS",
       payload: data.user,
@@ -25,7 +25,7 @@ export const login = (name, email, password) => async (dispatch) => {
     dispatch({
       type: "LOGIN_REQUEST",
     });
-    const { data } = await axios.post("/api/v1/login", {
+    const { data } = await axios.post("/login", {
       name,
       email,
       password,
@@ -49,7 +49,7 @@ export const Logout = () => async (dispatch) => {
     dispatch({
       type: "LOGOUT_REQUEST",
     });
-    const { data } = await axios.get("/api/v1/logout");
+    const { data } = await axios.get("/logout");
     dispatch({
       type: "LOGOUT_SUCCESS",
       payload: data.message,
@@ -69,7 +69,7 @@ export const LoadUser = () => async (dispatch) => {
     dispatch({
       type: "LOAD_USER_REQUEST",
     });
-    const { data } = await axios.get("/api/v1/myprofile");
+    const { data } = await axios.get("/myprofile");
     dispatch({
       type: "LOAD_USER_SUCCESS",
       payload: data.message,
@@ -91,7 +91,7 @@ export const adminUpdate =
         type: "UPDATE_USER_REQUEST",
       });
       const { data } = await axios.put(
-        "/api/v1/admin/update",
+        "/admin/update",
         {
           name,
           email,
@@ -125,7 +125,7 @@ export const addTimeline = (title, description, date) => async (dispatch) => {
       type: "ADD_TIMELINE_REQUEST",
     });
     const { data } = await axios.post(
-      "/api/v1/admin/timeline/add",
+      "/admin/timeline/add",
       {
         title,
         description,
@@ -156,7 +156,7 @@ export const deleteTimeline = (id) => async (dispatch) => {
     dispatch({
       type: "DELETE_TIMELINE_REQUEST",
     });
-    const { data } = await axios.delete(`/api/v1/admin/timeline/${id}`);
+    const { data } = await axios.delete(`/admin/timeline/${id}`);
     dispatch({
       type: "DELETE_TIMELINE_SUCCESS",
       payload: data.message,
@@ -177,7 +177,7 @@ export const addYoutube = (url, title, image) => async (dispatch) => {
       type: "ADD_YOUTUBE_REQUEST",
     });
     const { data } = await axios.post(
-      "/api/v1/admin/youtube/add",
+      "/admin/youtube/add",
       {
         url,
         title,
@@ -208,7 +208,7 @@ export const deleteYoutube = (id) => async (dispatch) => {
     dispatch({
       type: "DELETE_YOUTUBE_REQUEST",
     });
-    const { data } = await axios.delete(`/api/v1/admin/youtube/${id}`);
+    const { data } = await axios.delete(`/admin/youtube/${id}`);
     dispatch({
       type: "DELETE_YOUTUBE_SUCCESS",
       payload: data.message,
@@ -230,7 +230,7 @@ export const addProject =
         type: "ADD_PROJECT_REQUEST",
       });
       const { data } = await axios.post(
-        "/api/v1/admin/project/add",
+        "/admin/project/add",
         {
           url,
           title,
@@ -263,7 +263,7 @@ export const deleteProject = (id) => async (dispatch) => {
     dispatch({
       type: "DELETE_PROJECT_REQUEST",
     });
-    const { data } = await axios.delete(`/api/v1/admin/project//${id}`);
+    const { data } = await axios.delete(`/admin/project/${id}`);
     dispatch({
       type: "DELETE_PROJECT_SUCCESS",
       payload: data.message,
@@ -284,7 +284,7 @@ export const contactUs = (name, email, message) => async (dispatch) => {
       type: "CONTACT_PROJECT_REQUEST",
     });
     const { data } = await axios.post(
-      "/api/v1/contact",
+      "/contact",
       {
         name,
         email,
