@@ -1,4 +1,3 @@
-require("dotenv/config");
 const { User } = require("../models/User.js");
 const jwt = require("jsonwebtoken");
 const { sendMail } = require("../middleware/SendMail");

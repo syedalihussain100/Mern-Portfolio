@@ -1,4 +1,3 @@
-require("dotenv/config");
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -9,6 +8,11 @@ const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const cloudinary = require("cloudinary");
 const PORT = process.env.PORT || 4000;
+const dotenv = require("dotenv");
+
+
+dotenv.config({path: "./backend/config/config.env"})
+
 // routes import
 const { router } = require("./routers/User");
 
@@ -22,11 +26,11 @@ app.use(morgan("tiny"));
 app.use(cookieParser());
 app.use(`/api/v1`, router);
 
-// app.use(express.static(path.resolve("../client/build")));
+app.use(express.static(path.resolve("./client/build")));
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.resolve("../client/build/index.html"));
-// });
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve("./client/build/index.html"));
+});
 
 // error path
 app.use((req, res, next) => {
@@ -35,17 +39,17 @@ app.use((req, res, next) => {
   });
 });
 
+cloudinary.v2.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_KEY,
+  api_secret: process.env.API_SECRET,
+});
+
 mongoose
   .connect(process.env.MONGO_URL)
   .then(() => {
     console.log("Database Connected!");
   })
   .catch((err) => console.log(err.message));
-
-cloudinary.v2.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.API_KEY,
-  api_secret: process.env.API_SECRET,
-});
 
 app.listen(PORT, () => console.log(`Your Server is Running on ${PORT}`));
