@@ -6,7 +6,6 @@ import { FaYoutube } from "react-icons/fa";
 import { MdTimeline } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useAlert } from "react-alert";
 import { Logout, adminUpdate } from "../../actions/user";
 import {Helmet} from "react-helmet"
 
@@ -15,7 +14,7 @@ function AdminPannel() {
   const { message, error, loading } = useSelector((state) => state.update);
 
   const dispatch = useDispatch();
-  const alert = useAlert();
+  // const alert = useAlert();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -34,15 +33,15 @@ function AdminPannel() {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      window.alert(error);
       dispatch({ type: "CLEAR_ERRORS" });
     }
     if (message) {
-      alert.success(message);
+      window.alert(message);
       dispatch({ type: "CLEAR_MESSAGE" });
     }
     if (Loginmessage) {
-      alert.success(Loginmessage);
+      window.alert(Loginmessage);
       dispatch({ type: "CLEAR_MESSAGE" });
     }
   }, [alert, dispatch, Loginmessage]);

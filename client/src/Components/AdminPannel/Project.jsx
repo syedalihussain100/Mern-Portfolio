@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useAlert } from "react-alert";
 import "./AdminPannel.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addProject, getUser } from "../../actions/user";
@@ -13,7 +12,7 @@ const Project = () => {
   const { message: loginMessage } = useSelector((state) => state.login);
   const { message, error, loading } = useSelector((state) => state.update);
   const { user } = useSelector((state) => state.user);
-  const alert = useAlert();
+  // const alert = useAlert();
 
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
@@ -44,16 +43,16 @@ const Project = () => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      window.alert(error);
       dispatch({ type: "CLEAR_ERRORS" });
     }
 
     if (message) {
-      alert.success(message);
+      window.alert(message);
       dispatch({ type: "CLEAR_MESSAGE" });
     }
     if (loginMessage) {
-      alert.success(loginMessage);
+      window.alert(loginMessage);
       dispatch({ type: "CLEAR_MESSAGE" });
     }
   }, [error, message, alert, dispatch, loginMessage]);

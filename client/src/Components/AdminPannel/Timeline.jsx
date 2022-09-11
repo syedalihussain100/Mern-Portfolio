@@ -4,14 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { Typography, Button } from "@mui/material";
 import { MdKeyboardBackspace } from "react-icons/md";
 import { Link } from "react-router-dom";
-import { useAlert } from "react-alert";
 import { FaTrash } from "react-icons/fa";
 import { addTimeline, deleteTimeline, getUser } from "../../actions/user";
 import { Helmet } from "react-helmet";
 
 function Timeline() {
   const dispatch = useDispatch();
-  const alert = useAlert();
+  // const alert = useAlert();
   const { message: loginMessage } = useSelector((state) => state.login);
   const { message, error, loading } = useSelector((state) => state.update);
   const { user } = useSelector((state) => state.user);
@@ -33,16 +32,16 @@ function Timeline() {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      window.alert(error);
       dispatch({ type: "CLEAR_ERRORS" });
     }
 
     if (message) {
-      alert.success(message);
+      window.alert(message);
       dispatch({ type: "CLEAR_MESSAGE" });
     }
     if (loginMessage) {
-      alert.success(loginMessage);
+      window.alert(loginMessage);
       dispatch({ type: "CLEAR_MESSAGE" });
     }
   }, [error, message, alert, dispatch, loginMessage]);

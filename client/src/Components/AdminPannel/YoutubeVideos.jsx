@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
 import { MdKeyboardBackspace } from "react-icons/md";
 import { Button, Typography } from "@mui/material";
@@ -15,7 +14,7 @@ function YoutubeVideos() {
   const { user } = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
-  const alert = useAlert();
+  //const alert = useAlert();
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
   const [image, setImage] = useState("");
@@ -41,16 +40,16 @@ function YoutubeVideos() {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      window.alert(error);
       dispatch({ type: "CLEAR_ERRORS" });
     }
 
     if (message) {
-      alert.success(message);
+      window.alert(message);
       dispatch({ type: "CLEAR_MESSAGE" });
     }
     if (loginMessage) {
-      alert.success(loginMessage);
+      window.alert(loginMessage);
       dispatch({ type: "CLEAR_MESSAGE" });
     }
   }, [error, message, alert, dispatch, loginMessage]);

@@ -3,7 +3,6 @@ import "./Login.css";
 import { Button, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../actions/user";
-import { useAlert } from "react-alert";
 import { Helmet } from "react-helmet";
 
 function Login() {
@@ -14,7 +13,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const alert = useAlert();
+  // const alert = useAlert();
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -27,12 +26,12 @@ function Login() {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      window.alert(error);
       dispatch({ type: "CLEAR_ERRORS" });
     }
 
     if (message) {
-      alert.success(message);
+      window.alert(message);
       dispatch({ type: "CLEAR_MESSAGE" });
     }
   }, [alert, error, message, dispatch]);

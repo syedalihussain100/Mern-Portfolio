@@ -3,7 +3,6 @@ import "./Contact.css";
 import { Button, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { contactUs } from "../../actions/user";
-import { useAlert } from "react-alert";
 import { Helmet } from "react-helmet";
 
 function Conatct() {
@@ -11,7 +10,6 @@ function Conatct() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const dispatch = useDispatch();
-  const alert = useAlert();
   const {
     loading,
     message: alertMessage,
@@ -28,11 +26,11 @@ function Conatct() {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      window.alert(error);
       dispatch({ type: "CLEAR_ERRORS" });
     }
     if (alertMessage) {
-      alert.success(alertMessage);
+      window.alert(alertMessage);
       dispatch({ type: "CLEAR_MESSAGE" });
     }
   }, [alert, error, alertMessage, dispatch]);
